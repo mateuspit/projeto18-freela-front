@@ -1,12 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
-export default function SideMenuFlights({ handleFilter }) {
+export default function SideMenuHotels({ filterHotels }) {
     const [minPrice, setMinPrice] = React.useState('');
     const [maxPrice, setMaxPrice] = React.useState('');
-    const [departureDate, setDepartureDate] = React.useState('');
-    const [arrivalDate, setArrivalDate] = React.useState('');
 
     const navigate = useNavigate();
 
@@ -18,13 +16,9 @@ export default function SideMenuFlights({ handleFilter }) {
         setMaxPrice(event.target.value);
     };
 
-    const handleDepartureDateChange = (event) => {
-        setDepartureDate(event.target.value);
-    };
-
-    const handleArrivalDateChange = (event) => {
-        setArrivalDate(event.target.value);
-    };
+    function handleClick() {
+        navigate("/checkout");
+    }
 
     const handleFilterClick = () => {
         const filters = {
@@ -36,11 +30,6 @@ export default function SideMenuFlights({ handleFilter }) {
 
         handleFilter(filters);
     };
-
-
-    function handleClick() {
-        navigate("/hotels");
-    }
 
     return (
         <SidebarContainer>
@@ -63,25 +52,10 @@ export default function SideMenuFlights({ handleFilter }) {
                 />
                 <Observations>*Preço minimo encontrado R$ 6.969,00</Observations>
             </FilterLabel>
-            <FilterLabel>
-                Data de partida:
-                <FilterInput
-                    type="date"
-                    value={departureDate}
-                    onChange={handleDepartureDateChange}
-                />
-            </FilterLabel>
-            <FilterLabel>
-                Data de chegada:
-                <FilterInput
-                    type="date"
-                    value={arrivalDate}
-                    onChange={handleArrivalDateChange}
-                />
-            </FilterLabel>
+
             <ButtonContainer>
                 <StyledButton onClick={handleFilterClick}>Filtrar</StyledButton>
-                <StyledButton onClick={handleClick}>Ir para a escolha do hotel</StyledButton>
+                <StyledButton onClick={handleClick}>Veja suas escolhas!</StyledButton>
             </ButtonContainer>
         </SidebarContainer>
     );
@@ -98,6 +72,7 @@ const Observations = styled.p`
     color: black;
     font-size: 10px;
     margin-top: -10px;
+    text-align: left;
 `;
 
 const StyledButton = styled.button`
@@ -122,13 +97,13 @@ const SidebarContainer = styled.div`
 const Title = styled.h2`
   margin-bottom: 20px;
   font-weight: 900;
-  text-align: center;
 `;
 
 const FilterLabel = styled.label`
   display: block;
   margin-bottom: 10px;
   font-weight: 900;
+  text-align: left;
 `;
 
 const FilterInput = styled.input`
