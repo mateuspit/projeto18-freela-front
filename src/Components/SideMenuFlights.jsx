@@ -1,11 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 export default function SideMenuFlights({ handleFilter }) {
     const [minPrice, setMinPrice] = React.useState('');
     const [maxPrice, setMaxPrice] = React.useState('');
     const [departureDate, setDepartureDate] = React.useState('');
     const [arrivalDate, setArrivalDate] = React.useState('');
+
+    const navigate = useNavigate();
 
     const handleMinPriceChange = (event) => {
         setMinPrice(event.target.value);
@@ -34,6 +37,11 @@ export default function SideMenuFlights({ handleFilter }) {
         handleFilter(filters);
     };
 
+
+    function handleClick() {
+        navigate("/hotels");
+    }
+
     return (
         <SidebarContainer>
             <Title>Filtros</Title>
@@ -44,6 +52,7 @@ export default function SideMenuFlights({ handleFilter }) {
                     value={minPrice}
                     onChange={handleMinPriceChange}
                 />
+                <Observations>*Preço minimo encontrado R$ 69,00</Observations>
             </FilterLabel>
             <FilterLabel>
                 Preço máximo:
@@ -52,6 +61,7 @@ export default function SideMenuFlights({ handleFilter }) {
                     value={maxPrice}
                     onChange={handleMaxPriceChange}
                 />
+                <Observations>*Preço minimo encontrado R$ 6.969,00</Observations>
             </FilterLabel>
             <FilterLabel>
                 Data de partida:
@@ -69,10 +79,26 @@ export default function SideMenuFlights({ handleFilter }) {
                     onChange={handleArrivalDateChange}
                 />
             </FilterLabel>
-            <StyledButton onClick={handleFilterClick}>Filtrar</StyledButton>
+            <ButtonContainer>
+                <StyledButton onClick={handleFilterClick}>Filtrar</StyledButton>
+                <StyledButton onClick={handleClick}>Ir para a escolha do hotel</StyledButton>
+            </ButtonContainer>
         </SidebarContainer>
     );
 };
+
+const ButtonContainer = styled.div`
+  height: 175px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+const Observations = styled.p`
+    color: black;
+    font-size: 10px;
+    margin-top: -10px;
+`;
 
 const StyledButton = styled.button`
   padding: 10px 20px;
@@ -85,7 +111,6 @@ const StyledButton = styled.button`
 
 const SidebarContainer = styled.div`
   width: 300px;
-  height: calc(100vh - 50px);
   background-color: #3CB300;
   padding: 20px;
   border-right: 2px solid white;
