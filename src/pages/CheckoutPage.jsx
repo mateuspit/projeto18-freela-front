@@ -1,5 +1,5 @@
-import Header from "../Components/Header";
-import Checkout from "../Components/Checkout";
+import Header from "../components/Header";
+import Checkout from "../components/Checkout";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 

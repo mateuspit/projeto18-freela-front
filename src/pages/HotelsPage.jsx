@@ -1,8 +1,8 @@
-import Header from "../Components/Header";
+import Header from "../components/Header";
 import styled from "styled-components";
-import SideMenuHotels from "../Components/SideMenuHotels";
-import Hotels from "../Components/Hotels";
-import PageButtonHotels from "../Components/PageButtonHotels"
+import SideMenuHotels from "../components/SideMenuHotels";
+import Hotels from "../components/Hotels";
+import PageButtonHotels from "../components/PageButtonHotels"
 
 export default function HotelsPage() {
     return (

@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import Header from "../Components/Header";
-import SideMenuFlights from "../Components/SideMenuFlights";
-import Flights from "../Components/Flights";
-import PageButtonFlights from "../Components/PageButtonFlights";
+import Header from "../components/Header";
+import SideMenuFlights from "../components/SideMenuFlights";
+import Flights from "../components/Flights";
+import PageButtonFlights from "../components/PageButtonFlights";
 
 export default function FlightsPage() {
     return (
@@ -12,7 +12,7 @@ export default function FlightsPage() {
                 <ContentContainer>
                     <SideMenuFlights />
                     <FlightsContainer>
-                        <Text>Escolha uma das opções abaixo:</Text>
+                        <Text>Escolha uma das opções de passagem aérea abaixo:</Text>
                         <Flights />
                         <PageButtonFlights />
                     </FlightsContainer>

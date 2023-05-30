@@ -44,7 +44,7 @@ export default function SideMenuFlights({ handleFilter }) {
 
     return (
         <SidebarContainer>
-            <Title>Filtros</Title>
+            <Title>Filtros de passagens aéreas</Title>
             <FilterLabel>
                 Preço mínimo:
                 <FilterInput

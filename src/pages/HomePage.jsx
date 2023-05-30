@@ -1,11 +1,21 @@
 
-import DropdownCitiesDestination from "../Components/DropdownCitiesDestination";
-import DropdownCitiesDeparture from "../Components/DropdownCitiesDeparture";
-import Header from "../Components/Header";
+import DropdownCitiesDestination from "../components/DropdownCitiesDestination";
+import DropdownCitiesDeparture from "../components/DropdownCitiesDeparture";
+import Header from "../components/Header";
 import styled from "styled-components";
-import FirstButtonToFlights from "../Components/FirstButtonToFlights";
+import FirstButtonToFlights from "../components/FirstButtonToFlights";
+import { useEffect, useContext } from "react";
+import { TravelContext } from '../contexts/TravelContext.jsx';
+
 
 export default function HomePage() {
+    //const { selectedDestinationCity, selectedDepartureCity } = useContext(TravelContext);
+
+
+    //useEffect(() => {
+    //    console.log(selectedDestinationCity);
+    //    console.log(selectedDepartureCity);
+    //}, [selectedDestinationCity, selectedDepartureCity]);
     return (
         <>
             <HomePageContainer>
@@ -16,7 +26,7 @@ export default function HomePage() {
                 </CitiesOptions>
                 <FirstButtonToFlights />
                 <TextSpot>
-                    <Text>Coloque a cidade de partida e a cidade de destino e vamos mostras todas as opções de passagens e hoteis disponiveis com filtros que ajudam a personalizar sua experiencia</Text>
+                    <Text>Selecione a cidade de partida e a cidade de destino e vamos mostras todas as opções de passagens e hoteis disponiveis com filtros que ajudam a personalizar sua experiência</Text>
                     <Text>Ao final mostramos um resumo de suas escolhas.</Text>
                     <p>*Se deseja salvar suas escolhas faça cadastro!</p>
                 </TextSpot>
